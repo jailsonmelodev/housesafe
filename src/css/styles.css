@@ -31,8 +31,8 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   width: 100%;
-  background-color: transparent;
-  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
   z-index: 10;
 }
 
@@ -53,6 +53,40 @@ body {
   width: 100%;
   max-width: 1120px;
   padding: 10px 0;
+}
+
+.header-top .header-container picture {
+  width: 100px;
+  height: 100px;
+  background: #f8f2f2;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-top .header-container picture a {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-top .header-container picture a img {
+  height: 60%;
 }
 
 .header-top .header-container .menu-top ul {
@@ -85,10 +119,6 @@ body {
 
 .header-top .header-container .menu-top ul li a:hover {
   color: #e4a54b;
-}
-
-.header-top .header-container picture img {
-  height: 100%;
 }
 
 section {
@@ -136,6 +166,7 @@ section {
   max-width: 1120px;
   font-size: 3rem;
   color: rgba(248, 242, 242, 0.75);
+  top: -4rem;
 }
 
 .hero .hero-content p span {

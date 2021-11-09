@@ -28,8 +28,8 @@ body {
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: transparent;
-    position: absolute;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    position: fixed;
     z-index: 10;
 
     .header-container {
@@ -38,6 +38,28 @@ body {
         width: 100%;
         max-width: 1120px;
         padding: 10px 0;
+
+        picture {
+            width: 100px;
+            height: 100px;
+            background: $text-color;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            a {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    height: 60%;
+                }
+            }
+        }
 
         .menu-top {
             ul {
@@ -59,12 +81,6 @@ body {
                         }
                     }
                 }
-            }
-        }
-
-        picture {
-            img {
-                height: 100%;
             }
         }
     }
@@ -98,6 +114,7 @@ section {
             max-width: 1120px;
             font-size: 3rem;
             color: rgba($color: $text-color, $alpha: 0.75);
+            top: -4rem;
 
             span {
                 font-weight: 700;
