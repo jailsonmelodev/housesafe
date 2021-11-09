@@ -1,0 +1,409 @@
+@import "./scss/tipography";
+@import "./scss/color";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@mixin flexBox($justify-content, $align-items, $flex-direction) {
+    display: flex;
+    flex-direction: $flex-direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+body {
+    background-color: $bg-color;
+    color: $primary-color;
+    font-size: 1rem;
+    font-family: "Roboto", Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-top {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: transparent;
+    position: absolute;
+    z-index: 10;
+
+    .header-container {
+        @include flexBox(space-between, center, row);
+
+        width: 100%;
+        max-width: 1120px;
+        padding: 10px 0;
+
+        .menu-top {
+            ul {
+                @include flexBox(center, center, row);
+                list-style: none;
+                gap: 1.25rem;
+
+                li {
+                    a {
+                        padding: 10px 20px;
+                        text-decoration: none;
+                        color: $text-color;
+                        font-size: 1.1rem;
+                        opacity: 0.8;
+                        transition: 0.2s ease;
+
+                        &:hover {
+                            color: $third-color;
+                        }
+                    }
+                }
+            }
+        }
+
+        picture {
+            img {
+                height: 100%;
+            }
+        }
+    }
+}
+
+section {
+    max-width: 1120px;
+}
+
+.hero {
+    background: url(../image/foto01.jpg) no-repeat center/cover fixed #000;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    .hero-content {
+        background-color: rgba($color: #000000, $alpha: 0.6);
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p {
+            position: relative;
+            width: 100%;
+            max-width: 1120px;
+            font-size: 3rem;
+            color: rgba($color: $text-color, $alpha: 0.75);
+
+            span {
+                font-weight: 700;
+                font-size: 4rem;
+                color: $text-color;
+            }
+        }
+    }
+
+    .highlights {
+        position: absolute;
+        bottom: 1rem;
+
+        ul {
+            display: flex;
+            justify-content: space-between;
+            width: 1120px;
+
+            li {
+                width: 300px;
+                height: 220px;
+                overflow: hidden;
+                border-radius: 125px;
+                border: 4px solid $secondary-color;
+
+                img {
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+
+main {
+    max-width: 1120px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    h1 {
+        font-size: 2.2rem;
+        padding: 4rem 0;
+        color: $primary-color;
+    }
+
+    #about {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        div {
+            display: flex;
+
+            img {
+                width: 33rem;
+                border-radius: 0.5rem;
+            }
+
+            &:nth-of-type(1) {
+                flex-direction: row-reverse;
+                margin-bottom: 4rem;
+
+                img {
+                    margin-left: 5.62rem;
+                }
+            }
+
+            &:nth-of-type(2) {
+                img {
+                    margin-right: 5.62rem;
+                }
+            }
+        }
+    }
+
+    #services {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: $text-color;
+
+        .services-container {
+            display: flex;
+            flex-flow: wrap row;
+            justify-content: center;
+            gap: 4rem;
+
+            div {
+                width: 33rem;
+                height: 18.18rem;
+                position: relative;
+                overflow: hidden;
+                border-radius: 0.5rem;
+
+                &::before {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    content: "";
+                    background-color: rgba($color: #000000, $alpha: 0.6);
+                    z-index: 1;
+                }
+
+                img {
+                    width: 100%;
+                    position: absolute;
+                }
+
+                span {
+                    position: absolute;
+                    padding: 0.8rem;
+                    bottom: 0;
+                    z-index: 2;
+                    color: $text-color;
+
+                    h3 {
+                        margin-bottom: 0.4rem;
+                    }
+
+                    p {
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
+    }
+
+    #contact {
+        width: 100%;
+        border-radius: 302px 8px 8px 302px;
+        background-color: $secondary-color;
+        margin-top: 8rem;
+        padding: 1.2rem 0 1.2rem 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            display: flex img {
+                position: absolute;
+                z-index: 2;
+                width: 40%;
+            }
+
+            img {
+                position: absolute;
+                z-index: 2;
+                width: 40%;
+            }
+
+            span {
+                width: 516px;
+                height: 516px;
+                background-color: $text-color;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                overflow: hidden;
+                border: 18px solid $third-color;
+                position: relative;
+
+                .social-medias {
+                    width: 420px;
+                    height: 120px;
+                    background: $third-color;
+                    position: absolute;
+                    bottom: 0;
+                    display: flex;
+                    justify-content: center;
+
+                    ul {
+                        width: 200px;
+                        display: flex;
+                        justify-content: space-between;
+                        z-index: 3;
+                        list-style: none;
+                        position: relative;
+                        left: -30px;
+                        // bottom: 0;
+
+                        li {
+                            cursor: pointer;
+
+                            img {
+                                width: 48px;
+                                height: 48px;
+                                bottom: 50px;
+                                transition: 0.2s ease;
+
+                                &:hover {
+                                    filter: drop-shadow(0 0 4px $text-color);
+                                    opacity: 0.5;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .contact-form {
+            width: 48%;
+
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+
+                label {
+                    width: 100%;
+                    margin-bottom: 1rem;
+                    font-size: 1.1rem;
+                    color: $text-color;
+
+                    input,
+                    textarea {
+                        width: 100%;
+                        margin-top: 0.4rem;
+                        font-size: 1.1rem;
+                        padding: 0.6rem;
+                        border-radius: 0.4rem;
+                        border: none;
+                        outline: none;
+
+                        &:focus {
+                            border: 2px solid $third-color;
+                        }
+                    }
+
+                    input {
+                        height: 45px;
+                    }
+
+                    textarea {
+                        resize: none;
+                        height: 150px;
+                    }
+                }
+
+                input {
+                    &[type="submit"] {
+                        width: 40%;
+                        padding: 0.6rem;
+                        font-size: 1.1rem;
+                        color: $text-color;
+                        background-color: $primary-color;
+                        border-radius: 0.4rem;
+                        border: none;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+    .map {
+        background: url(../image/map.png) no-repeat center/cover;
+        margin-top: 4rem;
+        width: 100%;
+        height: 650px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 0.5rem;
+
+        .header-map {
+            width: 1200px;
+            height: 1200px;
+            background-color: $primary-color;
+            position: absolute;
+            border-radius: 50%;
+            top: -600px;
+            left: -600px;
+
+            .text-header-map {
+                position: absolute;
+                z-index: 3;
+                bottom: 30%;
+                right: 10%;
+
+                h1,
+                p {
+                    color: $text-color;
+                }
+            }
+        }
+    }
+
+    footer {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 2rem 0;
+        font-size: 1.1rem;
+
+        p {
+            display: flex;
+            align-items: center;
+            span {
+                margin-right: 0.4rem;
+            }
+        }
+    }
+}
