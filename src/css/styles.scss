@@ -260,7 +260,7 @@ main {
     }
 
     #contact {
-        @include flexBox(flex-start, center, row, wrap);
+        @include flexBox(center, center, row, wrap);
 
         width: 100%;
         border-radius: 8px;
