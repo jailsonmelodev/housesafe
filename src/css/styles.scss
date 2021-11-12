@@ -5,13 +5,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    vertical-align: baseline;
 }
 
-@mixin flexBox($justify-content, $align-items, $flex-direction) {
+@mixin flexBox($justify-content, $align-items, $flex-direction, $flex-wrap) {
     display: flex;
     flex-direction: $flex-direction;
     justify-content: $justify-content;
     align-items: $align-items;
+    flex-wrap: $flex-wrap;
 }
 
 body {
@@ -28,20 +30,43 @@ body {
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: transparent;
-    position: absolute;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    position: fixed;
     z-index: 10;
 
     .header-container {
-        @include flexBox(space-between, center, row);
+        @include flexBox(space-between, center, row, wrap);
 
         width: 100%;
         max-width: 1120px;
         padding: 10px 0;
 
+        picture {
+            width: 100px;
+            height: 100px;
+            background: $text-color;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            a {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    height: 60%;
+                }
+            }
+        }
+
         .menu-top {
             ul {
-                @include flexBox(center, center, row);
+                @include flexBox(center, center, row, wrap);
+
                 list-style: none;
                 gap: 1.25rem;
 
@@ -60,11 +85,9 @@ body {
                     }
                 }
             }
-        }
 
-        picture {
-            img {
-                height: 100%;
+            .menu-mobile {
+                display: none;
             }
         }
     }
@@ -72,59 +95,69 @@ body {
 
 section {
     max-width: 1120px;
+    min-width: 319px;
 }
 
 .hero {
     background: url(../image/foto01.jpg) no-repeat center/cover fixed #000;
     width: 100%;
     min-height: 100vh;
-    z-index: 2;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    position: relative;
 
-    .hero-content {
+    &::after {
+        content: "";
         background-color: rgba($color: #000000, $alpha: 0.6);
         width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        p {
-            position: relative;
-            width: 100%;
-            max-width: 1120px;
-            font-size: 3rem;
-            color: rgba($color: $text-color, $alpha: 0.75);
-
-            span {
-                font-weight: 700;
-                font-size: 4rem;
-                color: $text-color;
-            }
-        }
+        min-height: 100%;
+        position: absolute;
     }
 
-    .highlights {
-        position: absolute;
-        bottom: 1rem;
+    .hero-container {
+        @include flexBox(space-around, center, column, wrap);
+        z-index: 2;
+        width: 100%;
+        max-width: 1120px;
 
-        ul {
-            display: flex;
-            justify-content: space-between;
-            width: 1120px;
+        padding-top: 4rem;
 
-            li {
-                width: 300px;
-                height: 220px;
-                overflow: hidden;
-                border-radius: 125px;
-                border: 4px solid $secondary-color;
+        .hero-content {
+            width: 100%;
 
-                img {
-                    height: 100%;
+            p {
+                font-size: 3rem;
+                color: rgba($color: $text-color, $alpha: 0.75);
+                margin-top: 2rem;
+
+                span {
+                    font-weight: 700;
+                    font-size: 4rem;
+                    color: $text-color;
+                }
+            }
+        }
+
+        .highlights {
+            width: 100%;
+
+            ul {
+                @include flexBox(center, center, row, wrap);
+
+                gap: 4rem;
+                margin: 40px 0;
+
+                li {
+                    @include flexBox(center, center, row, nowrap);
+                    width: 310px;
+                    height: 180px;
+                    overflow: hidden;
+                    border-radius: 125px;
+                    border: 4px solid $secondary-color;
+
+                    img {
+                        width: 310px;
+                    }
                 }
             }
         }
@@ -133,13 +166,15 @@ section {
 
 main {
     max-width: 1120px;
+    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding: 10px;
 
     h1 {
         font-size: 2.2rem;
-        padding: 4rem 0;
+        padding: 2rem 0;
         color: $primary-color;
     }
 
@@ -150,60 +185,58 @@ main {
         flex-direction: column;
 
         div {
-            display: flex;
+            @include flexBox(center, center, row, wrap);
+            gap: 1rem;
 
             img {
-                width: 33rem;
+                width: 100%;
+                max-width: 539px;
                 border-radius: 0.5rem;
+                margin: 2rem 0 0.5rem;
+            }
+
+            p {
+                max-width: 539px;
+                width: 100%;
             }
 
             &:nth-of-type(1) {
                 flex-direction: row-reverse;
-                margin-bottom: 4rem;
-
-                img {
-                    margin-left: 5.62rem;
-                }
-            }
-
-            &:nth-of-type(2) {
-                img {
-                    margin-right: 5.62rem;
-                }
             }
         }
     }
 
     #services {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        // @include flexBox(center, center, column, wrap);
+
         color: $text-color;
+        width: 100%;
 
         .services-container {
-            display: flex;
-            flex-flow: wrap row;
-            justify-content: center;
-            gap: 4rem;
+            @include flexBox(center, center, row, wrap);
 
-            div {
-                width: 33rem;
-                height: 18.18rem;
+            gap: 4rem;
+            width: 100%;
+
+            .service {
+                width: 100%;
+                max-width: 516px;
+                height: 327px;
                 position: relative;
                 overflow: hidden;
                 border-radius: 0.5rem;
 
-                &::before {
+                &::after {
                     width: 100%;
                     height: 100%;
                     position: absolute;
                     content: "";
                     background-color: rgba($color: #000000, $alpha: 0.6);
-                    z-index: 1;
                 }
 
                 img {
                     width: 100%;
+                    height: 100%;
                     position: absolute;
                 }
 
@@ -227,59 +260,62 @@ main {
     }
 
     #contact {
+        @include flexBox(flex-start, center, row, wrap);
+
         width: 100%;
-        border-radius: 302px 8px 8px 302px;
+        border-radius: 8px;
         background-color: $secondary-color;
-        margin-top: 8rem;
-        padding: 1.2rem 0 1.2rem 1.2rem;
-        display: flex;
-        align-items: center;
+        margin-top: 4rem;
+        padding-right: 1.5rem;
         gap: 2rem;
 
-        .logo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .map {
+            background: url(../image/map.png) no-repeat center/cover;
+            height: 550px;
             position: relative;
-            display: flex img {
-                position: absolute;
-                z-index: 2;
-                width: 40%;
-            }
+            overflow: hidden;
+            border-radius: 0.5rem;
+            flex: 2;
+            min-width: 319px;
 
-            img {
+            .header-map {
+                width: 659px;
+                height: 659px;
+                background-color: $primary-color;
                 position: absolute;
-                z-index: 2;
-                width: 40%;
-            }
-
-            span {
-                width: 516px;
-                height: 516px;
-                background-color: $text-color;
                 border-radius: 50%;
-                display: flex;
-                justify-content: center;
-                overflow: hidden;
-                border: 18px solid $third-color;
-                position: relative;
+                top: -400px;
+                left: -250px;
+
+                .text-header-map {
+                    position: absolute;
+                    top: 60%;
+                    left: 45%;
+
+                    h1,
+                    address {
+                        color: $text-color;
+                        width: 65%;
+                        line-height: 1rem;
+                        margin-top: 20px;
+                        letter-spacing: 0.1rem;
+                    }
+                }
 
                 .social-medias {
+                    @include flexBox(center, flex-start, row, wrap);
+
                     width: 420px;
                     height: 120px;
                     background: $third-color;
-                    position: absolute;
                     bottom: 0;
-                    display: flex;
-                    justify-content: center;
 
                     ul {
+                        @include flexBox(space-between, flex-start, row, wrap);
+
                         width: 200px;
-                        display: flex;
-                        justify-content: space-between;
                         z-index: 3;
                         list-style: none;
-                        position: relative;
                         left: -30px;
                         // bottom: 0;
 
@@ -304,23 +340,22 @@ main {
         }
 
         .contact-form {
-            width: 48%;
+            flex: 1;
+            min-width: 319px;
 
             form {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-end;
+                @include flexBox(flex-start, flex-end, column, wrap);
 
                 label {
                     width: 100%;
-                    margin-bottom: 1rem;
+                    margin-bottom: 0.6rem;
                     font-size: 1.1rem;
                     color: $text-color;
 
                     input,
                     textarea {
                         width: 100%;
-                        margin-top: 0.4rem;
+                        margin-top: 0.3rem;
                         font-size: 1.1rem;
                         padding: 0.6rem;
                         border-radius: 0.4rem;
@@ -344,57 +379,26 @@ main {
 
                 input {
                     &[type="submit"] {
-                        width: 40%;
-                        padding: 0.6rem;
+                        padding: 0.4rem 2rem;
                         font-size: 1.1rem;
                         color: $text-color;
                         background-color: $primary-color;
                         border-radius: 0.4rem;
                         border: none;
                         cursor: pointer;
+                        line-height: 45px;
+                        border: 2px solid currentColor;
+                        margin-top: 0.3rem;
                     }
                 }
             }
         }
     }
 
-    .map {
-        background: url(../image/map.png) no-repeat center/cover;
-        margin-top: 4rem;
-        width: 100%;
-        height: 650px;
-        position: relative;
-        overflow: hidden;
-        border-radius: 0.5rem;
-
-        .header-map {
-            width: 1200px;
-            height: 1200px;
-            background-color: $primary-color;
-            position: absolute;
-            border-radius: 50%;
-            top: -600px;
-            left: -600px;
-
-            .text-header-map {
-                position: absolute;
-                z-index: 3;
-                bottom: 30%;
-                right: 10%;
-
-                h1,
-                p {
-                    color: $text-color;
-                }
-            }
-        }
-    }
-
     footer {
+        @include flexBox(space-around, center, row, wrap);
+
         width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
         padding: 2rem 0;
         font-size: 1.1rem;
 
@@ -407,3 +411,5 @@ main {
         }
     }
 }
+
+@import "./scss/responsividade";

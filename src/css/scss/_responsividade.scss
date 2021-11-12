@@ -1,0 +1,80 @@
+@media screen and (max-width: 1080px) {
+    .header-top {
+        .header-container {
+            picture {
+                width: 60px;
+                height: 60px;
+                background: $text-color;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                a {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    img {
+                        height: 60%;
+                    }
+                }
+            }
+
+            .menu-top {
+                ul {
+                    display: none;
+                }
+
+                .menu-mobile {
+                    display: block;
+                    width: 40px;
+                    height: 6px;
+                    background: $primary-color;
+                    margin-right: 10px;
+                    position: relative;
+                    cursor: pointer;
+
+                    &::before {
+                        content: "";
+                        width: 40px;
+                        height: 6px;
+                        background: $primary-color;
+                        position: absolute;
+                        top: 12px;
+                    }
+
+                    &::after {
+                        content: "";
+                        width: 40px;
+                        height: 6px;
+                        background: $primary-color;
+                        position: absolute;
+                        bottom: 12px;
+                    }
+                }
+            }
+        }
+    }
+
+    .hero {
+        .hero-container {
+            @include flexBox(space-around, center, column, wrap);
+            z-index: 2;
+            width: 100%;
+            max-width: 1120px;
+
+            padding-top: 6rem;
+
+            .hero-content {
+                width: 100%;
+
+                p {
+                    margin: 0 10px;
+                }
+            }
+        }
+    }
+}

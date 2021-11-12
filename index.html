@@ -9,12 +9,14 @@
     <title>House Safe</title>
 
     <link rel="stylesheet" href="./src/css/styles.css">
+
+    <script src="src/js/index.js"></script>
 </head>
 <body>
     <header class="header-top">
         <div class="header-container">
             <picture>
-                <img src="src/image/logo.svg" alt="Logo do site">
+                <a href="#"><img src="src/image/LOGO.svg" alt="Logo do site"></a>
             </picture>
             <nav class="menu-top">
                 <ul>
@@ -22,20 +24,24 @@
                     <li><a href="#services">Nossos serviços</a></li>
                     <li><a href="#contact">Contato</a></li>
                 </ul>
+
+                <div class="menu-mobile"></div>
             </nav>
         </div>
     </header>
 
     <div class="hero">
-        <div class="hero-content">
-            <p>Somos uma empresa de venda de imóveis<br>de <span>alto padrão</span>.</p>
-        </div>
-        <div class="highlights">
-            <ul>
-                <li><img src="src/image/foto01.jpg" alt="Imagem 01"></li>
-                <li><img src="src/image/03.jpg" alt="Imagem 02"></li>
-                <li><img src="src/image/02.webp" alt="Imagem 03"></li>
-            </ul>
+        <div class="hero-container">
+            <div class="hero-content">
+                <p>Somos uma empresa de venda de imóveis<br>de <span>alto padrão</span>.</p>
+            </div>
+            <div class="highlights">
+                <ul>
+                    <li><img src="src/image/foto01.jpg" alt="Imagem 01"></li>
+                    <li><img src="src/image/03.jpg" alt="Imagem 02"></li>
+                    <li><img src="src/image/02.webp" alt="Imagem 03"></li>
+                </ul>
+            </div>
         </div>
     </div>
     <main>
@@ -59,48 +65,55 @@
         <section id="services">
             <h1>Nossos serviços</h1>
             <div class="services-container">
-                <div>
+                <div class="service">
                     <img src="src/image/foto01.jpg" alt="">
                     <span>
-                        <h3>Lorem ipsum dolor sit amet, consectetur</h3>
+                        <h3>Lorem ipsum dolor sit amet</h3>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ipsum nam viverra donec faucibus. Dui a quis adipiscing dignissim felis, in sodales. Quis in sem faucibus nibh erat amet parturient. Suspendisse odio eu volutpat volutpat aenean vel neque. Adipiscing tempor congue.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ipsum nam viverra donec faucibus. Dui a quis adipiscing dignissim felis, in sodales.
                         </p>
                     </span>
                 </div>
-                <div>
+                <div class="service">
                     <img src="src/image/02.webp" alt="">
                     <span>
-                        <h3>Lorem ipsum dolor sit amet, consectetur</h3>
+                        <h3>Lorem ipsum dolor sit amet</h3>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ipsum nam viverra donec faucibus. Dui a quis adipiscing dignissim felis, in sodales. Quis in sem faucibus nibh erat amet parturient. Suspendisse odio eu volutpat volutpat aenean vel neque. Adipiscing tempor congue.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ipsum nam viverra donec faucibus. Dui a quis adipiscing dignissim felis, in sodales.
                         </p>
                     </span>
                 </div>
-                <div>
+                <div class="service">
                     <img src="src/image/03.jpg" alt="">
                     <span>
-                        <h3>Lorem ipsum dolor sit amet, consectetur</h3>
+                        <h3>Lorem ipsum dolor sit amet</h3>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ipsum nam viverra donec faucibus. Dui a quis adipiscing dignissim felis, in sodales. Quis in sem faucibus nibh erat amet parturient. Suspendisse odio eu volutpat volutpat aenean vel neque. Adipiscing tempor congue.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ipsum nam viverra donec faucibus. Dui a quis adipiscing dignissim felis, in sodales.
                         </p>
                     </span>
                 </div>
             </div>
         </section>
         <section id="contact">
-            <div class="logo">
-                <img src="src/image/LOGO.svg" alt="Logo do Site">
-                <span>
-                    <div class="social-medias">
-                        <ul>
-                            <li><img src="src/image/facebook-square.svg" alt="Logo do Facebook"></li>
-                            <li><img src="src/image/instagram.svg" alt="Logo do Instagram"></li>
-                            <li><img src="src/image/whatsapp.svg" alt="Logo do Whatsapp"></li>
-                        </ul>
+            <div class="map">
+                <div class="header-map">
+                    <div class="text-header-map">
+                        <h1>Encontre-nos</h1>
+                        <address>
+                            Rua: Lorem ipsum dolor sit amet, 158 apt 15 - Caboriu - Ceará
+                        </address>
                     </div>
-                </span>
+                </div>
+
+                <div class="social-medias">
+                    <ul>
+                        <li><img src="src/image/facebook-square.svg" alt="Logo do Facebook"></li>
+                        <li><img src="src/image/instagram.svg" alt="Logo do Instagram"></li>
+                        <li><img src="src/image/whatsapp.svg" alt="Logo do Whatsapp"></li>
+                    </ul>
+                </div>
             </div>
+                    
             <div class="contact-form">
                 <form name="contact-form">
                     <label>Nome
@@ -120,16 +133,7 @@
                 </form>
             </div>
         </section>
-        <section class="map">
-            <div class="header-map">
-                <div class="text-header-map">
-                    <h1>Encontre-nos</h1>
-                    <p>
-                        Rua: Lorem ipsum dolor sit amet, 158 apt 15 - Caboriu - Ceará
-                    </p>
-                </div>
-            </div>
-        </section>
+        
         <footer>
             <img src="src/image/LOGO.svg" alt="Logo do Site">
             <p><span>&copy</span>Todos os direitos reservados!</p>
